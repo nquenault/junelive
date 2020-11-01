@@ -1,0 +1,14 @@
+
+{$logdir}/*.log
+{$logdir}/*/*.log
+{
+	monthly
+	rotate 12
+	missingok
+	notifempty
+	minsize 2K
+	nocompress
+	postrotate
+		service apache2 restart
+	create 644 {$apacheuser} {$apacheuser}
+}
